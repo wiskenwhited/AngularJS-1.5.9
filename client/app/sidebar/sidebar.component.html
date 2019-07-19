@@ -1,0 +1,32 @@
+ <!-- <div class="logo" style='height:70px;'>
+   
+</div>  -->
+<div class='sidebar-mainbar'>
+    <div class="user" style='background:rgb(11, 117, 229);margin:0;padding:36px;'>
+        <input type='file' id='userPhoto' style='display:none'>
+        <div class="photo" (click)='uploadPhoto()'>
+            <img [src]="get()" width="80px"  height="80px" />
+            <!-- <img [src]="'data:image/jpg;base64,'+ photourl" width="80px"  height="80px" />   -->
+        </div>
+        <div class="info">
+            <a data-toggle="collapse" style='cursor:default' href="javascript:void(0)" class="collapsed" style='color:white'>
+                {{username}}
+                <!-- <b class="caret"></b>  -->
+                <br>
+                {{email}}
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-wrapper" style='background:white;'>
+        <div class="nav-container">
+            <ul class="nav">
+                <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+                    <a  [routerLink]="[menuItem.path]" >
+                        <i class="material-icons" style='color:rgba(0, 0, 0, 0.58)'>{{menuItem.icon}}</i>
+                        <p style='color:black !important'>{{menuItem.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+.table-pagination{
+    position: relative;
+}
+.table-pagination > div {
+    position: relative;
+    float: right;
+}
+.pagination-control{
+    position: relative;
+    float: left;
+}
+.pagination-control > * {
+    float: right;
+}
+.pagination{
+    cursor: pointer;
+    margin: 0px;
+}
+table>tbody>tr>td, table>thead>tr>th{   
+    text-align: center;
+    color:black;
+} 
+.rowsPerPage>*{
+    float: right;
+    margin-top: 0px;
+}
+.page{
+    padding: 10px;
+    margin-right: 20px;
+}
+.form-control{
+    font-size: 13px;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .check{
+    background: rgb(22, 92, 255) !important;
+}
+.pagination>li>a, .pagination>li>span{
+    border:0;
+}
+
+.card {
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); 
+}
+.card-header{
+    margin: 0;
+    background: white;
+     box-shadow: none; 
+     border-bottom:1px solid #D2D2D2;
+}
+.card-header>*{
+    color: black !important;
+}
+
+

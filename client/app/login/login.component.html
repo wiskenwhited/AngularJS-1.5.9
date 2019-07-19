@@ -1,0 +1,274 @@
+<div class='login' style=" background-image:url('../assets/img/bg.jpg');height:100%;">
+    <div  class='row telecom' >
+        <div *ngIf="!mode" class='head-title col-md-3 col-md-offset-1 col-xs-12'  align='left'>
+            <div class='comment col-xs-12' >
+                <h1>SIGN UP FOR FREE</h1>
+            </div>
+            <div class='comment1 col-xs-12'>
+                <h3>Already have a profile?</h3>
+            </div>
+            <div class='comment2 col-xs-12'>
+                <a href='#'>Log in</a> to your Mission Control Portal to access<br> your account
+            </div>
+        </div>
+
+        <div *ngIf="mode" class='head-title  col-md-3 col-md-offset-1 col-xs-12'  align='left'>
+            <div class='comment col-xs-12'>
+                <h1>LOG IN</h1>
+            </div>
+            <div class='comment1 col-xs-12'>
+                <h3>Don't have an account?</h3>
+            </div>
+            <div class='comment2 col-xs-12'>
+                <a href='#'>Sign up</a> for a Mission Control Portal account.It's <br>free, easy, and secure
+            </div>
+        </div>
+      
+        <div class="col-md-7  col-xs-12">
+            <div class="card card-nav-tabs first">
+                <div class="" data-background-color="">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="active" (click)="mode=false">
+                                <a href="#profile" data-toggle="tab">
+                                    Signup
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="" (click)="mode=true">
+                                <a href="#messages" id='signUptab' data-toggle="tab">
+                                    Signin
+                                    <div class="ripple-container" ></div>
+                                </a>
+                            </li>
+                        
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="tab-content">
+                        
+                        <div class='col-xs-12' *ngIf="emailConfirm" align='center' style='font-family: serif;color:rgb(3, 197, 159);font-size:20px'>
+                            Email address has been confirmed, Please proceeded to log in to the system
+                        </div>
+                        <div class="tab-pane active" id="profile">
+                            <form class='signUpForm' #signUpForm="ngForm">
+                                <div class='row col-sm-6 rightboder'>
+                                    <div class="col-sm-12 ">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">Full Name</label>
+                                            <input type="text" [(ngModel)]="signup.fullname" data-toggle="wizard-radio" #fullname="ngModel" name='fullname'  rel="tooltip" title="Enter your name" value="" class="form-control" required pattern="^[a-zA-Z\d\.]{5,}$"/>
+                                            <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: 0px;" *ngIf="fullname.errors && (fullname.dirty || fullname.touched)">
+                                                <div class="" style="opacity: 1; transform: translateY(0%);">
+                                                    <div [hidden]="!fullname.errors.required" >
+                                                        Fullname is required
+                                                    </div>
+
+                                                    <div [hidden]="!fullname.errors.pattern ">
+                                                        Enter valid name.Must contain at least 5 characters or more
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">Email address</label>
+                                            <input type="email" [(ngModel)]="signup.email" data-toggle="wizard-radio" rel="tooltip" #email="ngModel" name='email' title="Enter Valid Email" class="form-control" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                        </div>
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -1.2em;" *ngIf="email.errors && (email.dirty || email.touched) ">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);"  >
+                                                <div [hidden]="!email.errors.required">
+                                                    Email is required
+                                                </div>
+
+                                                <div [hidden]="!email.errors.pattern ">
+                                                    Enter valid email
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">Password</label>
+                                            <input type="password" [(ngModel)]="signup.pass1" validateEqual="pass2" reverse="true" data-toggle="wizard-radio" #pass1="ngModel" name='pass1' rel="tooltip" title="Enter your Password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+                                        </div>
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -1.2em;" *ngIf="pass1.errors && (pass1.dirty || pass1.touched)">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);">
+                                                <div [hidden]="!pass1.errors.required">
+                                                    Password is required
+                                                </div>
+
+                                                <div [hidden]="!pass1.errors.pattern">
+                                                    Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">Confirm Password</label>
+                                            <input type="password" [(ngModel)]="signup.pass2" data-toggle="wizard-radio"  validateEqual="pass1"  #pass2="ngModel" name='pass2' rel="tooltip" title="Confirm Password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+                                        </div>
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -1.2em;" *ngIf="pass2.errors && (pass2.dirty || pass2.touched) || customMatch">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);"  >
+                                                <div [hidden]="!pass2.errors.required">
+                                                    Password is required
+                                                </div>
+                                                <div [hidden]="!pass2.errors.pattern">
+                                                    Confirm password
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">Promo Code</label>
+                                            <input type="text" [(ngModel)]="signup.promo_code" data-toggle="wizard-radio" #promoCode="ngModel" name="promoCode" rel="tooltip" title="Enter Promo Code" class="form-control" required pattern="[A-Za-z0-9]{3,}"/>
+                                        </div>
+
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -1.2em;" *ngIf="promoCode.errors && (promoCode.dirty || promoCode.touched)">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);"  >
+                                                <div [hidden]="!promoCode.errors.required">
+                                                    PromoCode is required
+                                                </div>
+
+                                                <div [hidden]="!promoCode.errors.pattern ">
+                                                    Enter valid PromoCode
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating is-empty" data-toggle="wizard-radio"  rel="tooltip" title="Select user type">
+                                            <label class="control-label">Telecom user type</label>
+                                                <select class="form-control" [(ngModel)]="signup.userType" #userType='ngModel' name='userType' required>
+                                                                            <option disabled="" selected=""></option>
+                                                    <option value="User1"> Type1 </option>
+                                                    <option value="User2"> Type2 </option>
+                                                    <option value="User3"> Type3 </option>
+                                                </select>
+                                            <span class="material-input"></span>
+                                        </div>
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -1.2em;" *ngIf="userType.errors && (userType.dirty || userType.touched)">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);">
+                                                <div [hidden]="!userType.errors.required">
+                                                    Usertype is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='col-xs-12 example-full-width term'>
+                                        By clicking submit, you agree to our <a href='#' class=''>Terms and <br>Conditions</a>
+                                    </div>
+                                    <div class='col-xs-12' *ngIf="result" align='center' style='color:rgb(3, 197, 159);font-size:16px'>
+                                        We sent a confirmation link to you for login.Please confirm your email to verify your account.
+                                    </div>
+                                    <div class='col-xs-12' *ngIf="fail" align='center' style='color:red;font-size:16px'>
+                                        The email address entered has an account registered on the system, please use your login information or the forgot password link to reset your password
+                                    </div>
+                                    <div class='col-xs-12' *ngIf="socialConfirm" align='center' style='color:red;font-size:16px'>
+                                        Login failed.We can't found the information match your profile.
+                                    </div>
+                    
+
+                                    <div class='col-xs-12 ' align='center'>
+                                        <button  class="btn btn-clr signupbtn" [disabled]="isValidForm()" (click)="signUp(signUpForm)" md-raised-button>SUBMIT</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <div class='col-sm-6  col-xs-12 '>
+                                <div class='gmail btn btn-block row' (click)="enroll('google')"><p>G Sign up with Google</p></div>
+                                <div class='linkedin btn btn-block' (click)="enroll('linkedin')">in Sign up with Linkedln</div>
+                                <div class='facebook btn btn-block' (click)="enroll('facebook')">f Sign up with Facebook</div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="messages">
+                            <form class='' #signinForm="ngForm">
+                                <div class="col-sm-6 topinterval rightboder">
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error between ">
+                                            <label class="control-label">Email address</label>
+                                            <input type="email" [(ngModel)]="signin.smail" data-toggle="wizard-radio" name='smail' #smail='ngModel' rel="tooltip" title="Enter your Email Address" value="" class="form-control" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                                        </div>
+
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -2.5em;" *ngIf="smail.errors && (smail.dirty || smail.touched)">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);"  >
+                                                <div [hidden]="!smail.errors.required">
+                                                    Email is required
+                                                </div>
+
+                                                <div [hidden]="!smail.errors.pattern ">
+                                                    Enter valid email
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group label-floating has-error between">
+                                            <label class="control-label">Password</label>
+                                            <input type="password" [(ngModel)]="signin.password" name='password' #password="ngModel" data-toggle="wizard-radio" rel="tooltip" title="Enter Password" value="" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+                                        </div>
+                                        <div class="fixed" ng-reflect-ng-switch="error" style="margin-top: -2.5em;" *ngIf="password.errors && (password.dirty || password.touched)">
+                                            <div class="" style="opacity: 1; transform: translateY(0%);"  >
+                                                <div [hidden]="!password.errors.required">
+                                                    Password is required
+                                                </div>
+                                                <div [hidden]="!password.errors.pattern">
+                                                    Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-12 between">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name='memo' #memo="ngModel" [(ngModel)]="signin.memo" name="optionsCheckboxes" checked>Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class='col-xs-12 col-md-12 between' align='center' *ngIf="wrongPass" style='color:red;font-size:16px'>
+                                        Something wrong.Retry it.
+                                    </div>
+                                    <div class='col-xs-12 col-md-12 between' align='center' *ngIf="socialConfirm" style='color:red;font-size:16px'>
+                                        Login failed.We can't found the information match your profile.
+                                    </div>
+                                    <div class="col-xs-12 col-md-12 between">
+                                        <a href='#' class='terms'> Forgot your password?</a>
+                                    </div>
+                                    <!-- Submit -->
+                                    <div class="col-xs-12 col-md-12 between" align='center'>
+                                        <button (click)="signIn(signinForm)" [disabled]="isValid1" class="loginbtn btn btn-clr" md-raised-button>LOG IN</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class='col-sm-6 col-xs-12 '>
+                                <div class='gmail btn btn-block row' (click)="enroll('google')"><p>G Sign up with Google</p></div>
+                                <div class='linkedin btn btn-block' (click)="enroll('linkedin')">in Sign up with Linkedln</div>
+                                <div class='facebook btn btn-block' (click)="enroll('facebook')">f Sign up with Facebook</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+

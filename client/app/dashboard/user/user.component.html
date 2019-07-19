@@ -1,0 +1,129 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" >
+                    <h4 class="title">Edit Profile</h4>
+                    <!-- <p class="category">Complete your profile</p> -->
+                </div>
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Company </label>
+                                    <input type="text" [(ngModel)]="user.company" name='company' class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Username</label>
+                                    <input type="text" [(ngModel)]="user.username" name="username" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Email address</label>
+                                    <input type="email" [(ngModel)]="user.email"  name="email" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Fist Name</label>
+                                    <input type="text" [(ngModel)]="user.first_name" name="firstname" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Last Name</label>
+                                    <input type="text" [(ngModel)]="user.last_name" name="lastname" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Adress</label>
+                                    <input type="text" [(ngModel)]="user.address" name="address" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">City</label>
+                                    <input type="text" [(ngModel)]="user.city" name="city" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Country</label>
+                                    <input type="text" [(ngModel)]="user.country" name="country" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Postal Code</label>
+                                    <input type="text" [(ngModel)]="user.postal_code" name='postalCode' class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Password</label>
+                                    <input type="password" [(ngModel)]="user.password" name='password' class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group   label-floating is-empty">
+                                    <label class="control-label">Confirm Password</label>
+                                    <input type="password" [(ngModel)]="user.confirm_password" name='confirmpassword' class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>About Me</label>
+                                    <div class="form-group   label-floating is-empty">
+                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                        <textarea class="form-control" name='overview' [(ngModel)]="user.overview" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" (click)="save()" class="btn btn-primary btn-round pull-right">Update Profile</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <div style='cursor:pointer'>
+                        <img class="img" id='img' (click)="upload()" [src]="photo" />
+                    </div>
+                </div>
+                <input type='file' id='uploadPhoto' name='uploadPhoto[]' #inputFile accept="image/*" (change)="uploadPhoto($event)" style='display:none' mult>
+                <div class="content">
+                    <h6 class="category text-gray">upload your photo</h6>
+                    <h4 class="card-title">{{username}}</h4>
+                    <p class="card-content">
+                       {{user.overview}}
+                    </p>
+                    <div *ngIf="alert">Successfully uploaded!</div>
+                    <button class="btn btn-primary btn-round pull-right" (click)='saveChange()'>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

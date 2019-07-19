@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="rose">
+                        <h4 class="title">Payment History</h4>
+                        <p class="category">Hollywood Inc</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr>
+                                    <th>Job</th>
+                                    <th>Payment amount</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr *ngFor="let hist of filteredJobList;let i = index;">
+                                    <td>{{hist.job_name}}</td>
+                                    <td>${{hist.payment_amount}}</td>
+                                    <td>{{hist.date | date: 'y-M-d H:m:s'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                      <div class='card-content table-pagination col-lg-12 col-md-12'>
+                        <div class="col-md-6 col-sm-6  pagination-control" role="toolbar">
+                            <div class="">
+                                <ul class="pagination" >
+                                    <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a  (click)="prevPage()"> <i class="material-icons">keyboard_arrow_left</i></a></li>
+                                    <!--<li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                                        <a (click)="setPage(page)">{{page}}</a>
+                                    </li>-->
+                                    <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a (click)="nextPage()"> <i class="material-icons">keyboard_arrow_right</i></a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="" style='margin:5px 10px;vertical-align:center'>
+                                <label style="padding:5px">Page {{currentIndex}} of {{pageNumber}}</label>
+                            </div>
+
+                            <div class="form-group label-floating is-empty" style='margin:0' data-toggle="wizard-radio"  rel="tooltip" title="">
+                                <select class="form-control" [(ngModel)]="pageSize" (change)='change(page.value)' #page='ngModel' name='page'>
+                                    <option value={{value}} *ngFor="let value of rowPerPage" selected> {{value}} </option>
+                                </select>
+                                <span class="material-input"></span>
+                            </div>
+                            <label class='page'>Rows per page:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

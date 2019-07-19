@@ -1,0 +1,186 @@
+<div class="main-content" *ngIf="!drop">
+    <div class='col-md-12 col-xs-12'>
+        <div class='col-md-7 col-sm-7 col-xs-12'  >
+            <input type="search"  id='typesearch' class='form-control' style='padding-top: 3px !important;'  (keyup)='filter(search.value)' #search placeholder="Search for a Sift Job" >
+        </div>
+        
+        <div align='right' class='col-md-5  col-sm-7 col-xs-12'>
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round customAdd" (click)="spec()"  data-toggle="wizard-radio" data-placement='left' rel="tooltip" title="Add New Sift Job">
+                                
+            </button>
+        </div>
+    </div>
+    <button id='down-alert' data-toggle="modal"  data-target="#download-alert" style='display:none'></button>
+    <div class="modal fade" id="download-alert" role="dialog" >
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><div style='padding:2px'>&times;</div></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group label-floating has-error">
+                    <p style='word-break:break-word;font-size: 16px;'>Not have any DNC data.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-clr charge" style='background: #761a89; width: 100% !important;' data-dismiss="modal" md-raised-button>OK</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <button id='cancelled' data-toggle="modal"  data-target="#jobcancel" style='display:none'></button>
+    <div class="modal fade" id="jobcancel" role="dialog" >
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><div style='padding:2px'>&times;</div></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group label-floating has-error">
+                    <p style='word-break:break-word;font-size: 16px;'>Do you want to stop this job?It's a mistake?</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-clr btn-round charge" (click)="lid()" style='background: #761a89; width: 48% !important;' data-dismiss="modal" md-raised-button>YES</button>
+                <button type="button" class="btn btn-clr btn-round charge" style='background: #761a89; width: 48% !important;' data-dismiss="modal" md-raised-button>NO</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+        <div class="container-fluid">
+            <div class="col-lg-12 col-md-12">
+                <div class="card" style=''>
+                    <div class="card-header row" style='box-shadow:none'>
+                        <div class='' style='float:left;padding: 15px;' >
+                            <p class="" style='font-weight:300;font-size:1.325em'>DNC Sift Jobs</p>
+                        </div>
+                        <div class='' style='padding:15px;float:right'><i class="material-icons">more_vert</i></div>
+                        <div class='' style='padding:15px;float:right'><i class="material-icons">filter_list</i></div>
+                        
+                        <div class="togglebutton " style="float:right">
+                            <div class="dropdown">
+                                <button href="#pablo" class="dropdown-toggle btn btn-primary  btn-round " data-toggle="dropdown" aria-expanded="false">{{sort}}
+                                    <b class="caret"></b>
+                                <div class="ripple-container"></div></button>
+                                <ul class="dropdown-menu dropdown-menu-left">
+                                    <li >
+                                        <a href='javascript:void(0)' (click)="changeState('All')"  >All</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" (click)="changeState('Active')">Active</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" (click)="changeState('Completed')">Completed</a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </div> 
+                        
+                        
+                    </div>
+                   
+                    <div class="col-lg-12 col-md-12" style='display:block;border-bottom:1px solid rgba(0,0,0,0.11);background:rgba(82, 77, 89, 0.16)'>
+                        <p class=" pull-left" style='padding:15px;color:#165cff'> 1 item selected </p>
+                        <div class='pull-right' style='color:black;padding:15px;'><i class="material-icons">more_vert</i></div>
+                    </div>
+
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" checked>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>Filename</th>
+                                    <th>Created Date</th>
+                                    <th>DNC</th>
+                                    <th>Gold</th>
+                                    <th>Total</th>
+                                    <th>Progress</th>
+                                    <th>Cost Matches</th>
+                                    <th>Cost Dips</th>
+                                    <th>Total Cost</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dnc of filteredJobList;let index = index;" >
+                                    <th>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"  [(ngModel)]="checkbox[index]" (click)='getItems()' #check name="optionsCheckboxes[]">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td>{{dnc.filename}}</td>
+                                    <td>{{dnc.created_date | date: 'y-M-d H:m:s'}}</td>
+                                    <td>{{dnc.dnc | number}}</td>
+                                    <td>{{dnc.gold | number}}</td>
+                                    <td>{{dnc.total | number}}</td>
+                                    <td>
+                                        <div class='progress' style='background:#aaefae; margin-bottom:-6px'>
+                                             <div class='' [ngStyle]="{'width.%': dnc.progress || 0}" style='background:green;'>
+                                                 {{dnc.progress}}% 
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div *ngIf="dnc.progress !== 100">
+                                            <div><p style='font-style:italic;margin:0'>progressing...&nbsp;&nbsp;</p></div>
+                                            <div><i class="material-icons" style='cursor: pointer; color:red' (click)="abc(index)">cancel</i></div>
+                                        </div>
+                                    </td> 
+                                    <td>${{dnc.cost_matches}}</td>
+                                    <td>${{dnc.cost_dips}}</td>
+                                    <td>${{dnc.total_cost}}</td>
+                                    <td>
+                                        <div class='download-job' *ngIf="dnc.download_status"> 
+                                            <a [href]="downloadlink"  id="download" target='_blank' style='display:none'></a>
+                                            <button class="btn btn-primary btn-round download-gold"  (click)='download("gold", index)' data-toggle="wizard-radio" data-placement='bottom'  title="Download GOLD csv file"><i class="material-icons">assignment_returned</i>Gold</button>
+                                            <button class="btn btn-info pull-center btn-round download-dnc" (click)='download("dnc", index)' data-placement='bottom'  title="Download DNC csv file"><i class="material-icons">assignment_returned</i>DNC</button>
+                                        </div>
+                                        <div class='payment-btn' *ngIf="!dnc.download_status">
+                                            <button class="btn btn-primary btn-round rose-btn" [disabled]="!dnc.payment_status" (click)="pay(index)">
+                                                <i class="material-icons">favorite</i> payment
+                                            <div class="ripple-container"></div></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='card-content table-pagination col-lg-12 col-md-12'>
+                        <div class="col-md-6 col-sm-6  pagination-control" role="toolbar">
+                            <div class="">
+                                <ul class="pagination" >
+                                    <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a  (click)="prevPage()"> <i class="material-icons">keyboard_arrow_left</i></a></li>
+                                    <!--<li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                                        <a (click)="setPage(page)">{{page}}</a>
+                                    </li>-->
+                                    <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a (click)="nextPage()"> <i class="material-icons">keyboard_arrow_right</i></a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="" style='margin:5px 10px;vertical-align:center'>
+                                <label style="padding:5px">Page {{currentIndex}} of {{pageNumber}}</label>
+                            </div>
+
+                            <div class="form-group label-floating is-empty" style='margin:0' data-toggle="wizard-radio"  rel="tooltip" title="">
+                                <select class="form-control" [(ngModel)]="pageSize" (change)='change(page.value)' #page='ngModel' name='page'>
+                                    <option value={{value}} *ngFor="let value of rowPerPage" selected> {{value}} </option>
+                                </select>
+                                <span class="material-input"></span>
+                            </div>
+                            <label class='page'>Rows per page:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

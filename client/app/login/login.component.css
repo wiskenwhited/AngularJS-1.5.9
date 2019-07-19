@@ -1,0 +1,344 @@
+div.shaded-box { background-color: #f3f3f3; }
+.align-with-card { padding: 24px; }
+p.visa-details { text-align: justify; line-height: 1.8; font-size: 16px; font-weight: 200; }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background: #edeff0;
+    padding:1px;
+    cursor: pointer;
+    /*padding-left:20px !important;*/
+
+}
+
+.wizard-card[data-color="red"] .form-group .form-control {
+    background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
+}
+.mat-tab-label-container{
+  background: white !important;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card{
+  background: white !important;
+}
+form {
+  border-right:  1px solid #eee;
+}
+button>a {
+  padding:0px;
+}
+.first{
+  margin-top:70px;
+  height: 800px;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+a.activeLink { border-bottom: 2px solid #3F51B5; }
+
+md-card-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+md-input {
+  width: 100%;
+}
+.md-card{
+  max-width:98% !important;
+
+}
+md-card-actions {
+  /*justify-content: flex-end;*/
+}
+
+.error {
+  font-size: 13px;
+  color: #c7254e;
+  background: #f9f2f4;
+  border-radius: 3px;
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+md-toolbar {
+  max-width: 90%;
+  margin: 2em auto;
+}
+
+.center-txt { text-align: center; }
+.left-txt { text-align: left !important; }
+.space { margin-bottom: 15px; }
+.align-with-form { margin-left: 2%; }
+
+/*.example-form {
+  width: 500px;
+}
+*/
+.cropimg{
+margin-top:100px;
+}
+.example-full-width {
+  width: 90%;
+}
+.example-half-width {
+  width: 50%;
+}
+
+/deep/ .mat-tab-body {
+  overflow-y: hidden !important;
+  background: #f7f7f7;
+}
+
+.form-headings {
+  margin-top: 10px !important;
+}
+
+.form-ele { margin-top: 5%; margin-bottom: 5%; }
+.form-ele-input { margin-bottom: 5%; }
+/deep/ .mat-input-placeholder { font-weight: 300 !important; }
+.mar-top-4 { margin-top: 4%; }
+.mar-top-2 { margin-top: 2%; }
+
+.result {
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+#stickyBtn{
+  /*float:left;*/
+}
+/*span.md2-autocomplete-placeholder{
+      color: rgba(243, 6, 6, 1) !important;
+}*/
+.hide{
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+
+.pull-left {
+  position:fixed;
+  min-width: 400px;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.05);
+}
+
+/*.alert-minimalist {
+	background-color: rgb(241, 242, 240);
+	border-color: rgba(149, 149, 149, 0.3);
+	border-radius: 3px;
+	color: rgb(149, 149, 149);
+	padding: 10px;
+}
+.alert-minimalist > [data-notify="icon"] {
+	height: 50px;
+	margin-right: 12px;
+}
+.alert-minimalist > [data-notify="title"] {
+	color: rgb(51, 51, 51);
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.alert-minimalist > [data-notify="message"] {
+	font-size: 80%; 
+}*/
+
+
+
+.file-upload {
+height: 25px;
+width: 50%;
+position: relative;
+padding-bottom: 0px !important;
+border-radius: 3px;
+display: flex;
+justify-content: center;
+align-items: center;
+/*float: right;*/
+
+border: 1px solid #FFF;
+overflow: hidden;
+background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+background-size: 100% 200%;
+/*transition: all 1s;*/
+color: #FFF;
+font-size: 10px;
+}
+
+.file-upload:hover {
+/*background-position: 0 -100%;*/
+/*color: #2590Eb;*/
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+}
+.mat-tab-labels{
+  background: white;
+}
+.text {
+  font-size: 14px;
+}
+.telecom{
+}
+input[type='file'] {
+height: 25px;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+cursor: pointer;
+}
+.between{
+  margin-top:20px !important;
+  margin-bottom:20px !important;
+}
+.rightboder{
+  border-right: 1px solid #eee;
+}
+.topinterval{
+  margin-top:100px;
+  
+}
+.mat-toolbar.mat-primary {
+  background: #6BD062 !important;
+}
+.comment{
+  color:rgb(3, 197, 159);
+  font-weight: bold;
+}
+.comment1, .comment2{
+  color:white;
+}
+.completer-dropdown-holder { overflow-y: scroll !important; }
+.header{
+  margin-top: 10% !important;
+  position: relative;
+  text-align: center;
+  margin-right: 0;
+  padding-left:10px;
+}
+.active{
+}
+.terms{
+  font-size: large;
+  color: rgba(13,164,212, 1);
+  text-decoration: none;
+}
+.term{
+  font-size: 16px;
+}
+.loginbtn, .signupbtn{
+  background: rgb(3, 197, 159);
+}
+.gmail{
+  position: relative;
+  color:red;
+  border:2px solid red;
+}
+.gmail, .facebook, .linkedin {
+  background:white !important;
+  height:50px;
+  margin-top:65px;
+  margin-left:2%;
+  word-break: break-all;
+  word-wrap:break-word !important;
+  font-size: large;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  /*overflow: hidden !important;*/
+  font-family: serif;
+}
+
+/*@media all and (max-device-width: 720px){
+    .facebook {
+        font-size: 18px !important;
+    }
+}
+
+@media all and (max-device-width: 640px){
+    .facebook {
+        font-size: 16px !important;
+    }
+}
+
+@media all and (max-device-width : 320px ){
+.facebook {
+        font-size: 12px !important;
+    }
+}*/
+.fixed{                     
+  color:red;
+  font-size:12px;
+
+}
+.facebook{
+  color: #3a4e88;
+  border:2px solid #3a4e88;
+}
+.linkedin{
+  color: blue;
+  border:2px solid blue;
+}
+.login{
+    position: fixed;
+    z-index: 0;
+    background-image: url(../assets/img/bg.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-origin: content-box;
+}
+.signup{
+  height: 70% !important;
+  max-height: 70% !important;
+}
+.example-full-width{
+  margin-top:20px !important;
+  margin-bottom:20px !important;
+}
+.right_side{
+  margin-top:5% !important;
+  min-height: 90%;
+  height: 90%;
+  margin-bottom:5% !important;
+}
+.head-title{
+    margin-top: 15%;
+}
+.signIn-form{
+  padding-top:10%;
+  padding-bottom: 10%;
+}
+.loginbtn{
+}
+.mat-card{
+    padding:55px !important;
+}
+login-cmp{
+  height: 100%;
+}
+.nav-tabs>li{
+  margin:20px;
+  font-size: 20px;
+  color: #eee !important;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a{
+   font-size: x-large;
+}

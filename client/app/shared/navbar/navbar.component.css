@@ -1,0 +1,53 @@
+.custom-nav{
+    padding: 0px !important;
+    padding-top:0px !important;
+}
+.modal-backdrop {
+    position: absolute;
+   z-index: unset;
+}
+.paypal{
+    position: fixed;
+    height: 40px;
+    margin-top: -40px;
+    opacity: 0;
+    width: 100%;
+}
+.charge{
+    background: #761a89;
+    width: 100% !important;
+}
+.inputPrice{
+    background:transparent;
+    color: white;
+    border: 0;
+    padding: 15px;
+}
+.modal-body {
+    padding-top: 0 !important;
+}
+
+.xcomponent-outlet{
+    width: 100%;
+}
+.collapse, .navbar-collapse {
+    background: rgb(22, 92, 255);
+    height: 73px !important;
+}
+.nav-title{
+    color: white;
+    padding: 25px;
+    padding-left:0px;
+    float: left;
+    font-size: large;
+}
+.nav-list{
+    padding: 25px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+.padding-set{
+    padding:25px;
+    color:white;
+}

@@ -1,0 +1,10 @@
+<script>
+   function receiveMessage(event) {
+        if (event.origin !== "http://localhost:4000" && event.origin !== "http://localhost")
+        return;
+        console.log("event: ", event);
+        event.source.postMessage("success", event.origin);
+        window.close();
+    }
+    window.addEventListener("message", receiveMessage, false); 
+</script>

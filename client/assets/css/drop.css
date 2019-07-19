@@ -1,0 +1,78 @@
+.drop {
+  position: fixed;
+    min-height: 300px;
+    width: 60%;
+    border: 3px dotted #e91e63;
+    background: rgba(255, 255, 255, 0.85);
+    margin: 20%;
+    margin-top:13%;
+    opacity: 1;
+    z-index: 15;
+    font-weight: bold;
+    font-size: 20px;
+    padding:30px;
+
+}
+.urlValue{
+    display:none;
+}
+.selectFile{
+     background: rgb(4, 55, 173) !important;
+}
+.closebtn{
+    background: transparent !important;
+    position: fixed;
+    margin-left:92%;
+
+    z-index: 20;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+}
+.chooseFile{
+    position: fixed;
+    margin-top:33%;
+    margin-left:45%;
+    z-index: 20;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+}
+
+
+.dropZone1{
+    display: none;
+}
+
+.dropZoneArea{
+    position: fixed;
+    display: none;
+    z-index: 10;
+    width: 100%;
+    opacity: 0.9;
+    background: #969696;
+    height: 100%;
+}
+/*.drop {
+    min-height: 50px;
+    width: 250px;
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}   */
+
+.btn.btn-fab.btn-fab-mini, .btn-group-sm .btn.btn-fab, .navbar .navbar-nav > li > a.btn.btn-fab.btn-fab-mini, .btn-group-sm
+.navbar .navbar-nav > li > a.btn.btn-fab{
+    height: 58px;
+    min-width: 60px;
+    width: 60px;
+    background: #f44336;
+}
+.btn.btn-fab.btn-fab-mini .material-icons, .btn-group-sm .btn.btn-fab .material-icons, .navbar .navbar-nav > li > a.btn.btn-fab.btn-fab-mini .material-icons, .btn-group-sm
+.navbar .navbar-nav > li > a.btn.btn-fab .material-icons{
+    font-size: 20px;
+}
+
+.xcomponent-outlet{
+    width: 100%;
+}
