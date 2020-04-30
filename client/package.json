@@ -32,7 +32,7 @@
     "browser-sync-client": "^2.5.1",
     "chartist": "~0.9.8",
     "core-js": "~2.4.1",
-    "jquery": "~3.1.1",
+    "jquery": "~3.5.0",
     "ng-chartist": "1.1.0",
     "reflect-metadata": "~0.1.8",
     "rxjs": "5.0.1",
