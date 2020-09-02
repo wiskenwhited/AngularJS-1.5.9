@@ -24,7 +24,7 @@
     "express-session": "^1.15.3",
     "file-stream-rotator": "^0.1.0",
     "formidable": "^1.1.1",
-    "googleapis": "^20.1.0",
+    "googleapis": "^39.1.0",
     "helmet": "^3.6.0",
     "json2csv": "^3.9.1",
     "jsonexport": "^2.0.10",
