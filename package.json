@@ -46,7 +46,7 @@
     "passport-linkedin-oauth2": "^1.5.0",
     "passport-local": "^1.0.0",
     "paypal-rest-sdk": "^1.7.1",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.1",
     "q": "^1.5.0",
     "request": "^2.81.0",
     "rootpath": "^0.1.2",
