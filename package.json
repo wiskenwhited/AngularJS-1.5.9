@@ -28,7 +28,7 @@
     "helmet": "^3.6.0",
     "json2csv": "^3.9.1",
     "jsonexport": "^2.0.10",
-    "jsonwebtoken": "^7.4.0",
+    "jsonwebtoken": "^9.0.0",
     "localStorage": "^1.0.3",
     "localstorage": "^0.1.0",
     "lodash": "^4.17.4",
